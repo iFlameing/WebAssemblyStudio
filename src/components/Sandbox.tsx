@@ -82,6 +82,7 @@ export class Sandbox extends React.Component<{}, {}>  {
     })(contentWindow.console.warn);
     contentWindow.console.error = (error => function() {
       logger.logLn(Array.prototype.join.call(arguments), "error");
+      logger.logLn(Array.prototype.join.call(["Failed to fetch:https://localhost:28843/out/main.wsm"]),"error");
       error.apply(contentWindow.console, arguments);
     })(contentWindow.console.error);
     // Hijack fetch
